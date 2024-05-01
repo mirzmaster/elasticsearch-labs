@@ -4,9 +4,19 @@ from uuid import uuid4
 from chat import ask_question
 import os
 import sys
+import elastic_transport
 
 app = Flask(__name__, static_folder="../frontend/build", static_url_path="/")
 CORS(app)
+
+print("ELASTIC_TRANSPORT_DEBUG: ", os.getenv("ELASTIC_TRANSPORT_DEBUG"))
+if os.getenv("ELASTIC_TRANSPORT_DEBUG").lower() == "true":
+    print("Elastic transport debug logging ENABLED.")
+    elastic_transport.debug_logging()
+elif os.getenv("ELASTIC_TRANSPORT_DEBUG").lower() == "false":
+    print("Elastic transport debug logging DISABLED.")
+else:
+    print("** ELASTIC_TRANSPORT_DEBUG not set correctly. Defaulting to DISABLED. **")
 
 
 @app.route("/")
