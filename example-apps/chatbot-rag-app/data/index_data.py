@@ -95,7 +95,7 @@ def main():
         index_name=INDEX,
         strategy=ElasticsearchStore.SparseVectorRetrievalStrategy(model_id=ELSER_MODEL),
         bulk_kwargs={
-            "request_timeout": 60,
+            "request_timeout": 3600,
         },
     )
 
