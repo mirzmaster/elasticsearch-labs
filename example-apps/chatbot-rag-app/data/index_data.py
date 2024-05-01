@@ -21,6 +21,7 @@ ELSER_MODEL = os.getenv("ELSER_MODEL", ".elser_model_2")
 if ELASTICSEARCH_URL:
     elasticsearch_client = Elasticsearch(
         hosts=[ELASTICSEARCH_URL],
+        api_key=ELASTIC_API_KEY,
     )
 elif ELASTIC_CLOUD_ID:
     elasticsearch_client = Elasticsearch(
