@@ -8,6 +8,8 @@ ELASTICSEARCH_URL = os.getenv("ELASTICSEARCH_URL")
 ELASTIC_API_KEY = os.getenv("ELASTIC_API_KEY")
 
 if ELASTICSEARCH_URL:
+    print("hosts: ", ELASTICSEARCH_URL)
+    print("api_key: ", ELASTIC_API_KEY)
     elasticsearch_client = Elasticsearch(
         hosts=[ELASTICSEARCH_URL],
         api_key=ELASTIC_API_KEY,
